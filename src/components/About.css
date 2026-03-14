@@ -1,0 +1,65 @@
+.about {
+  padding: 100px 32px; background: var(--bg-secondary); position: relative;
+}
+.about::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.about::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--violet), transparent);
+}
+.about__container {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.about__title {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 900; line-height: 1.2; margin-bottom: 24px;
+}
+.about__desc {
+  font-size: 0.98rem; line-height: 1.8;
+  color: var(--text-muted); margin-bottom: 16px;
+}
+.about__tech { margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--border); }
+.about__tech-label {
+  font-family: 'Rajdhani', sans-serif; font-size: 0.7rem;
+  font-weight: 700; letter-spacing: 3px; color: var(--text-muted); margin-bottom: 14px;
+}
+.about__tech-list { display: flex; flex-wrap: wrap; gap: 10px; }
+.about__tech-tag {
+  padding: 6px 14px; border: 1px solid var(--border);
+  background: rgba(255,184,48,0.04);
+  font-family: 'Rajdhani', sans-serif; font-size: 0.78rem;
+  font-weight: 600; letter-spacing: 1px; color: var(--text-muted);
+  transition: all 0.3s ease;
+}
+.about__tech-tag:hover {
+  border-color: var(--gold); color: var(--gold);
+  background: rgba(255,184,48,0.08);
+}
+.about__values { display: flex; flex-direction: column; gap: 24px; }
+.about__value {
+  display: flex; gap: 18px; align-items: flex-start;
+  padding: 20px; background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+}
+.about__value:hover {
+  border-color: rgba(255,184,48,0.35);
+  transform: translateX(6px);
+}
+.about__value-icon {
+  font-size: 1.5rem; flex-shrink: 0;
+  filter: drop-shadow(0 0 8px rgba(255,184,48,0.5));
+}
+.about__value-title {
+  font-size: 0.9rem; font-weight: 700;
+  letter-spacing: 1px; margin-bottom: 6px; color: var(--text-primary);
+}
+.about__value-desc { font-size: 0.83rem; line-height: 1.6; color: var(--text-muted); }
+@media (max-width: 900px) {
+  .about__container { grid-template-columns: 1fr; gap: 48px; }
+  .about { padding: 60px 20px; }
+}
