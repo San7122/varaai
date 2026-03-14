@@ -2,7 +2,7 @@
   "name": "varaai-website",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://sanjanathakur.github.io/varaai",
+  "homepage": "https://San7122.github.io/varaai",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
