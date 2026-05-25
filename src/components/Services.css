@@ -102,7 +102,19 @@
 }
 
 .service-card__icon {
-  font-size: 2.5rem;
+  width: 40px;
+  height: 40px;
+  color: #8b5aff;
+  transition: all 0.3s ease;
+}
+
+.service-card--pink .service-card__icon {
+  color: #ff4d7d;
+}
+
+.service-card:hover .service-card__icon {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px currentColor);
 }
 
 .service-card__tag {

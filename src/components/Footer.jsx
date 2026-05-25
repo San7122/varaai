@@ -1,3 +1,4 @@
+import { Zap } from 'lucide-react';
 import './Footer.css';
 
 export default function Footer() {
@@ -7,7 +8,7 @@ export default function Footer() {
       <div className="footer__container">
         <div className="footer__brand">
           <div className="footer__logo">
-            <span className="footer__logo-icon">✦</span>
+            <Zap className="footer__logo-icon" size={24} strokeWidth={2} />
             VARA<span className="footer__logo-accent">AI</span>
           </div>
           <p className="footer__tagline">We Build. We Deliver. We Are En(AI)bling™</p>

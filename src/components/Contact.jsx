@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from 'emailjs-com';
+import { Mail, Phone, Globe, Clock, MessageCircle, CheckCircle } from 'lucide-react';
 import './Contact.css';
 
 // ─────────────────────────────────────────────
@@ -96,7 +97,7 @@ export default function Contact() {
           {/* How you receive badge */}
           <div className="contact__notify-bar">
             <div className="contact__notify-item">
-              <span>📧</span>
+              <Mail size={24} strokeWidth={1.5} />
               <div>
                 <p className="contact__notify-title">Email Response</p>
                 <p className="contact__notify-sub">Professional consultation</p>
@@ -104,7 +105,7 @@ export default function Contact() {
             </div>
             <div className="contact__notify-divider">+</div>
             <div className="contact__notify-item">
-              <span>💬</span>
+              <MessageCircle size={24} strokeWidth={1.5} />
               <div>
                 <p className="contact__notify-title">WhatsApp Confirmation</p>
                 <p className="contact__notify-sub">Quick acknowledgment</p>
@@ -123,19 +124,24 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
           >
             {[
-              { icon: '📧', label: 'Email', value: 'contact@varaai.com' },
-              { icon: '📞', label: 'Phone', value: '+1 (123) 456-7890' },
-              { icon: '🌍', label: 'Location',  value: 'Global - India, USA, EU' },
-              { icon: '⏱️', label: 'Response Time',  value: 'Within 24 hours' },
-            ].map((item) => (
+              { Icon: Mail, label: 'Email', value: 'contact@varaai.com' },
+              { Icon: Phone, label: 'Phone', value: '+1 (123) 456-7890' },
+              { Icon: Globe, label: 'Location',  value: 'Global - India, USA, EU' },
+              { Icon: Clock, label: 'Response Time',  value: 'Within 24 hours' },
+            ].map((item) => {
+              const { Icon } = item;
+              return (
               <div key={item.label} className="contact__info-item">
-                <span className="contact__info-icon">{item.icon}</span>
+                <div className="contact__info-icon">
+                  <Icon size={24} strokeWidth={1.5} />
+                </div>
                 <div>
                   <p className="contact__info-label">{item.label}</p>
                   <p className="contact__info-value">{item.value}</p>
                 </div>
               </div>
-            ))}
+            );
+            })}
 
             <div className="contact__divider" />
 
@@ -169,7 +175,7 @@ export default function Contact() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
               >
-                <span className="contact__success-icon">🪷</span>
+                <CheckCircle className="contact__success-icon" size={56} strokeWidth={1.5} />
                 <h3>Message Sent! 🎉</h3>
                 <p>You've been notified on <strong>Email</strong> &amp; <strong>WhatsApp</strong>.</p>
                 <p className="contact__success-sub">We'll get back to you within 24 hours. Jai Mata Di! 🙏</p>

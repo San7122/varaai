@@ -22,11 +22,13 @@
   text-decoration: none; flex-shrink: 0;
 }
 .navbar__logo-icon {
-  font-size: 1.5rem;
+  width: 28px;
+  height: 28px;
   background: linear-gradient(135deg, #8b5aff, #ff4d7d);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 0 8px rgba(139, 90, 255, 0.3));
+  flex-shrink: 0;
 }
 .navbar__logo-text {
   font-family: 'Inter', sans-serif;

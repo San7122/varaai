@@ -41,10 +41,12 @@
 }
 
 .footer__logo-icon {
+  width: 24px;
+  height: 24px;
   background: linear-gradient(135deg, #8b5aff, #ff4d7d);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 1.4rem;
+  flex-shrink: 0;
 }
 
 .footer__logo-accent {

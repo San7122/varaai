@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion';
+import { Brain, BarChart3, Code2, Cloud, Cog, Shield } from 'lucide-react';
 import './Services.css';
 
 const services = [
-  { icon: '🤖', title: 'AI/ML Services', tag: 'AI', desc: 'Unlock the power of artificial intelligence and machine learning with custom models, data analysis, and intelligent automation.', features: ['AI Chatbots', 'Predictive Analytics', 'NLP Solutions', 'Computer Vision'], color: 'purple' },
-  { icon: '📊', title: 'Big Data Analytics', tag: 'DATA', desc: 'Transform raw data into actionable insights with advanced analytics, data pipelines, and business intelligence solutions.', features: ['Data Pipelines', 'Analytics Dashboards', 'Business Intelligence', 'Real-time Processing'], color: 'pink' },
-  { icon: '💻', title: 'Web Development', tag: 'WEB', desc: 'Build scalable, high-performance web applications with modern technologies and best practices for enterprise solutions.', features: ['Full-Stack Development', 'Cloud Integration', 'API Development', 'Responsive Design'], color: 'purple' },
-  { icon: '☁️', title: 'Cloud Solutions', tag: 'CLOUD', desc: 'Migrate, deploy, and optimize your infrastructure on cloud platforms with security and performance at scale.', features: ['AWS/Azure/GCP', 'Kubernetes', 'DevOps', 'Infrastructure as Code'], color: 'pink' },
-  { icon: '⚙️', title: 'Automation & RPA', tag: 'AUTOMATION', desc: 'Streamline business processes with intelligent automation, RPA systems, and workflow optimization.', features: ['Process Automation', 'RPA Solutions', 'Workflow Design', 'Integration'], color: 'purple' },
-  { icon: '🔐', title: 'Cybersecurity', tag: 'SECURITY', desc: 'Protect your digital assets with comprehensive security solutions, compliance, and threat prevention strategies.', features: ['Security Audits', 'Compliance Management', 'Threat Detection', 'Risk Assessment'], color: 'pink' },
+  { Icon: Brain, title: 'AI/ML Services', tag: 'AI', desc: 'Unlock the power of artificial intelligence and machine learning with custom models, data analysis, and intelligent automation.', features: ['AI Chatbots', 'Predictive Analytics', 'NLP Solutions', 'Computer Vision'], color: 'purple' },
+  { Icon: BarChart3, title: 'Big Data Analytics', tag: 'DATA', desc: 'Transform raw data into actionable insights with advanced analytics, data pipelines, and business intelligence solutions.', features: ['Data Pipelines', 'Analytics Dashboards', 'Business Intelligence', 'Real-time Processing'], color: 'pink' },
+  { Icon: Code2, title: 'Web Development', tag: 'WEB', desc: 'Build scalable, high-performance web applications with modern technologies and best practices for enterprise solutions.', features: ['Full-Stack Development', 'Cloud Integration', 'API Development', 'Responsive Design'], color: 'purple' },
+  { Icon: Cloud, title: 'Cloud Solutions', tag: 'CLOUD', desc: 'Migrate, deploy, and optimize your infrastructure on cloud platforms with security and performance at scale.', features: ['AWS/Azure/GCP', 'Kubernetes', 'DevOps', 'Infrastructure as Code'], color: 'pink' },
+  { Icon: Cog, title: 'Automation & RPA', tag: 'AUTOMATION', desc: 'Streamline business processes with intelligent automation, RPA systems, and workflow optimization.', features: ['Process Automation', 'RPA Solutions', 'Workflow Design', 'Integration'], color: 'purple' },
+  { Icon: Shield, title: 'Cybersecurity', tag: 'SECURITY', desc: 'Protect your digital assets with comprehensive security solutions, compliance, and threat prevention strategies.', features: ['Security Audits', 'Compliance Management', 'Threat Detection', 'Risk Assessment'], color: 'pink' },
 ];
 
 export default function Services() {
@@ -25,7 +26,9 @@ export default function Services() {
         </motion.div>
 
         <div className="services__grid">
-          {services.map((service, i) => (
+          {services.map((service, i) => {
+            const { Icon } = service;
+            return (
             <motion.div key={service.title}
               className={`service-card service-card--${service.color}`}
               initial={{ opacity: 0, y: 40 }}
@@ -35,7 +38,7 @@ export default function Services() {
               whileHover={{ y: -6 }}
             >
               <div className="service-card__top">
-                <span className="service-card__icon">{service.icon}</span>
+                <Icon className="service-card__icon" size={32} strokeWidth={1.5} />
                 <span className="service-card__tag">{service.tag}</span>
               </div>
               <h3 className="service-card__title">{service.title}</h3>
@@ -50,7 +53,8 @@ export default function Services() {
               <a href="#contact" className="service-card__cta">Learn More →</a>
               <div className="service-card__glow" />
             </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Zap } from 'lucide-react';
 import './Navbar.css';
 
 const navLinks = [
@@ -30,7 +31,7 @@ export default function Navbar() {
       <div className="navbar__inner">
         {/* Logo */}
         <a href="#home" className="navbar__logo">
-          <span className="navbar__logo-icon">✦</span>
+          <Zap className="navbar__logo-icon" size={28} strokeWidth={2} />
           <span className="navbar__logo-text">
             VARA<span className="navbar__logo-accent">AI</span>
           </span>
