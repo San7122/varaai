@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/varaai/', // For GitHub Pages: /repository-name/
+  base: '/', // Works for Vercel (primary) and can work for GitHub Pages with proper config
 });
