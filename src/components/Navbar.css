@@ -22,13 +22,15 @@
   text-decoration: none; flex-shrink: 0;
 }
 .navbar__logo-icon {
-  width: 28px;
-  height: 28px;
-  background: linear-gradient(135deg, #8b5aff, #ff4d7d);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 8px rgba(139, 90, 255, 0.3));
-  flex-shrink: 0;
+  font-size: 1.6rem;
+  filter: drop-shadow(0 0 12px rgba(139, 90, 255, 0.4)) drop-shadow(0 0 20px rgba(255, 77, 125, 0.2));
+  animation: float-gentle 3s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
 }
 .navbar__logo-text {
   font-family: 'Inter', sans-serif;
