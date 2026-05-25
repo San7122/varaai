@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from 'emailjs-com';
-import { Mail, Phone, Globe, Clock, MessageCircle, CheckCircle } from 'lucide-react';
+import { Mail, Phone, Globe, Clock, MessageCircle, CheckCircle, Loader, Send } from 'lucide-react';
 import './Contact.css';
 
 // ─────────────────────────────────────────────
@@ -176,9 +176,9 @@ export default function Contact() {
                 animate={{ opacity: 1, scale: 1 }}
               >
                 <CheckCircle className="contact__success-icon" size={56} strokeWidth={1.5} />
-                <h3>Message Sent! 🎉</h3>
+                <h3>Message Sent!</h3>
                 <p>You've been notified on <strong>Email</strong> &amp; <strong>WhatsApp</strong>.</p>
-                <p className="contact__success-sub">We'll get back to you within 24 hours. Jai Mata Di! 🙏</p>
+                <p className="contact__success-sub">We'll get back to you within 24 hours.</p>
                 <button
                   type="button"
                   className="btn-outline contact__reset"
@@ -231,11 +231,21 @@ export default function Contact() {
                   className={`btn-primary contact__submit ${status === 'sending' ? 'sending' : ''}`}
                   disabled={status === 'sending'}
                 >
-                  {status === 'sending' ? '⏳ SENDING...' : '📨 SEND — EMAIL + WHATSAPP ✦'}
+                  {status === 'sending' ? (
+                    <>
+                      <Loader size={16} className="inline-flex mr-2" style={{ animation: 'spin 1s linear infinite' }} />
+                      SENDING...
+                    </>
+                  ) : (
+                    <>
+                      <Send size={16} className="inline-flex mr-2" />
+                      SEND — EMAIL + WHATSAPP
+                    </>
+                  )}
                 </button>
 
                 <p className="contact__form-note">
-                  📧 You'll get a copy via email &nbsp;·&nbsp; 💬 We'll be pinged on WhatsApp instantly
+                  <Mail size={14} className="inline mr-1" /> You'll get a copy via email &nbsp;·&nbsp; <MessageCircle size={14} className="inline mr-1" /> We'll be pinged on WhatsApp instantly
                 </p>
               </>
             )}

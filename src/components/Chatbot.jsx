@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Bot, MessageCircle, Send, Loader } from 'lucide-react';
 import './Chatbot.css';
 
 // ─── Knowledge Base ───────────────────────────────────────────────
@@ -89,10 +90,10 @@ const KB = [
 const FALLBACK = `Hmm, I'm not sure about that one! 🤔\n\nBut I can help you with:\n• 🛒 Shop & e-commerce websites\n• 🏥 Clinic & medical portals\n• ⚡ Automation solutions\n• 💰 Financial tools\n• 💻 App development\n• 💬 Pricing & plans\n\nOr reach us directly:\n📧 **hello@varaai.in** | 💬 **+91 98765 43210** 🙏`;
 
 const QUICK_QUESTIONS = [
-  '🛒 Shop website cost?',
-  '🏥 Clinic platform?',
-  '⚡ Automation tools?',
-  '📞 Contact VaraAI',
+  'Shop website cost?',
+  'Clinic platform?',
+  'Automation tools?',
+  'Contact VaraAI',
 ];
 
 function getBotReply(userText) {
@@ -172,12 +173,12 @@ export default function Chatbot() {
             <div className="chatbot-header">
               <div className="chatbot-header__left">
                 <div className="chatbot-header__avatar">
-                  <span>🪷</span>
+                  <Bot size={20} />
                   <span className="chatbot-header__status-dot" />
                 </div>
                 <div>
                   <p className="chatbot-header__name">VaraBot</p>
-                  <p className="chatbot-header__sub">AI Assistant · Always Online ✦</p>
+                  <p className="chatbot-header__sub">AI Assistant · Always Online</p>
                 </div>
               </div>
               <button className="chatbot-header__close" onClick={() => setOpen(false)}>✕</button>
@@ -192,7 +193,7 @@ export default function Chatbot() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  {msg.role === 'assistant' && <span className="chatbot-msg__avatar">🪷</span>}
+                  {msg.role === 'assistant' && <span className="chatbot-msg__avatar"><Bot size={18} /></span>}
                   <div className="chatbot-msg__bubble">{renderText(msg.content)}</div>
                 </motion.div>
               ))}
@@ -201,7 +202,7 @@ export default function Chatbot() {
                 <motion.div className="chatbot-msg chatbot-msg--assistant"
                   initial={{ opacity: 0 }} animate={{ opacity: 1 }}
                 >
-                  <span className="chatbot-msg__avatar">🪷</span>
+                  <span className="chatbot-msg__avatar"><Bot size={18} /></span>
                   <div className="chatbot-msg__bubble chatbot-msg__bubble--typing">
                     <span /><span /><span />
                   </div>
@@ -239,7 +240,7 @@ export default function Chatbot() {
                 onClick={() => sendMessage()}
                 disabled={typing || !input.trim()}
               >
-                {typing ? '⏳' : '▶'}
+                {typing ? <Loader size={18} style={{ animation: 'spin 1s linear infinite' }} /> : <Send size={18} />}
               </button>
             </div>
             <p className="chatbot-footer-note">VaraAI · No AI API needed · 100% Free</p>
@@ -256,7 +257,7 @@ export default function Chatbot() {
         <AnimatePresence mode="wait">
           {open
             ? <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.18 }}>✕</motion.span>
-            : <motion.span key="chat" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.18 }}>💬</motion.span>
+            : <motion.span key="chat" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.18 }}><MessageCircle size={20} /></motion.span>
           }
         </AnimatePresence>
         {!open && <span className="chatbot-fab__label">Ask VaraBot</span>}

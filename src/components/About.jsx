@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
+import { Sparkles, Shield, TrendingUp, Handshake } from 'lucide-react';
 import './About.css';
 
 const values = [
-  { icon: '🪷', title: 'Divine Precision', desc: 'Every solution is crafted with the care and grace of a blessing.' },
-  { icon: '🔒', title: 'Trusted Security', desc: 'Enterprise-grade security baked into every platform we build.' },
-  { icon: '🌱', title: 'Scalable Growth', desc: 'Built to grow with you — from a small shop to a thriving enterprise.' },
-  { icon: '🤝', title: 'Long-term Partnership', desc: "We become your trusted tech partner, not just a vendor." },
+  { Icon: Sparkles, title: 'Divine Precision', desc: 'Every solution is crafted with the care and grace of a blessing.' },
+  { Icon: Shield, title: 'Trusted Security', desc: 'Enterprise-grade security baked into every platform we build.' },
+  { Icon: TrendingUp, title: 'Scalable Growth', desc: 'Built to grow with you — from a small shop to a thriving enterprise.' },
+  { Icon: Handshake, title: 'Long-term Partnership', desc: "We become your trusted tech partner, not just a vendor." },
 ];
 
 export default function About() {
@@ -17,7 +18,7 @@ export default function About() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.7 }}
         >
-          <p className="section-label">✦ ABOUT VARAAI ✦</p>
+          <p className="section-label">ABOUT VARAAI</p>
           <h2 className="about__title">Bringing Digital <span className="gradient-text">Prosperity</span> To Every Business</h2>
           <p className="about__desc">VaraAI is a technology studio inspired by the spirit of Laxmi Mata — the goddess of wealth, fortune, and prosperity. We believe every business deserves the power of modern technology, regardless of size or industry.</p>
           <p className="about__desc">From a small kirana shop launching online to a clinic managing patient records digitally — VaraAI brings the blessings of AI and smart software to uplift your business.</p>
@@ -38,7 +39,9 @@ export default function About() {
 
         <div className="about__right">
           <div className="about__values">
-            {values.map((v, i) => (
+            {values.map((v, i) => {
+              const { Icon } = v;
+              return (
               <motion.div key={v.title} className="about__value"
                 initial={{ opacity: 0, x: 40 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -46,13 +49,14 @@ export default function About() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 whileHover={{ x: 6 }}
               >
-                <div className="about__value-icon">{v.icon}</div>
+                <div className="about__value-icon"><Icon size={32} /></div>
                 <div>
                   <h4 className="about__value-title">{v.title}</h4>
                   <p className="about__value-desc">{v.desc}</p>
                 </div>
               </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

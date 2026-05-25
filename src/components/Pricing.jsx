@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Sprout, Flower2, Crown, Wrench, TrendingUp, MessageSquare, Zap, Check, X } from 'lucide-react';
 import './Pricing.css';
 
 const plans = [
   {
     name: 'Starter',
     subtitle: 'Perfect for small shops & solo owners',
-    icon: '🌱',
+    Icon: Sprout,
     oneTime: 29999,
     monthly: 2999,
     color: 'gold',
@@ -26,7 +27,7 @@ const plans = [
   {
     name: 'Prosperity',
     subtitle: 'For growing businesses & online stores',
-    icon: '🪷',
+    Icon: Flower2,
     oneTime: 89999,
     monthly: 7999,
     color: 'violet',
@@ -47,7 +48,7 @@ const plans = [
   {
     name: 'Divine',
     subtitle: 'For enterprises, clinics & custom AI',
-    icon: '👑',
+    Icon: Crown,
     oneTime: 229999,
     monthly: 19999,
     color: 'saffron',
@@ -67,10 +68,10 @@ const plans = [
 ];
 
 const ADD_ONS = [
-  { icon: '🔧', name: 'Monthly Maintenance', desc: 'Updates, backups, security patches', price: '₹1,999/mo' },
-  { icon: '📈', name: 'SEO Growth Package', desc: 'Monthly SEO + Google ranking boost', price: '₹3,999/mo' },
-  { icon: '💬', name: 'WhatsApp Automation', desc: 'Auto-reply + lead follow-up bots', price: '₹4,999/mo' },
-  { icon: '🤖', name: 'AI Chatbot Add-on', desc: 'Smart chatbot for any existing site', price: '₹9,999 one-time' },
+  { Icon: Wrench, name: 'Monthly Maintenance', desc: 'Updates, backups, security patches', price: '₹1,999/mo' },
+  { Icon: TrendingUp, name: 'SEO Growth Package', desc: 'Monthly SEO + Google ranking boost', price: '₹3,999/mo' },
+  { Icon: MessageSquare, name: 'WhatsApp Automation', desc: 'Auto-reply + lead follow-up bots', price: '₹4,999/mo' },
+  { Icon: Zap, name: 'AI Chatbot Add-on', desc: 'Smart chatbot for any existing site', price: '₹9,999 one-time' },
 ];
 
 function formatINR(n) {
@@ -91,12 +92,12 @@ export default function Pricing() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="section-label">✦ TRANSPARENT PRICING ✦</p>
+          <p className="section-label">TRANSPARENT PRICING</p>
           <h2 className="pricing__title">
-            Choose Your <span className="gradient-text">Blessing Plan</span>
+            Choose Your <span className="gradient-text">Perfect Plan</span>
           </h2>
           <p className="pricing__subtitle">
-            No hidden costs. No surprises. Just honest pricing. 🙏
+            No hidden costs. No surprises. Just honest pricing.
           </p>
 
           {/* Mode Toggle */}
@@ -105,21 +106,21 @@ export default function Pricing() {
               className={`pricing__mode-btn ${mode === 'onetime' ? 'active' : ''}`}
               onClick={() => setMode('onetime')}
             >
-              💰 One-Time Project Fee
+              One-Time Project Fee
             </button>
             <button
               className={`pricing__mode-btn ${mode === 'monthly' ? 'active' : ''}`}
               onClick={() => setMode('monthly')}
             >
-              📅 Monthly Retainer
+              Monthly Retainer
             </button>
           </div>
 
           {/* Mode explanation */}
           <p className="pricing__mode-desc">
             {mode === 'onetime'
-              ? '💡 Pay once, own it forever. Best for businesses that want full ownership.'
-              : '💡 Low monthly fee includes hosting, maintenance & support. No big upfront cost.'}
+              ? 'Pay once, own it forever. Best for businesses that want full ownership.'
+              : 'Low monthly fee includes hosting, maintenance & support. No big upfront cost.'}
           </p>
         </motion.div>
 
@@ -135,11 +136,11 @@ export default function Pricing() {
               whileHover={{ y: -8 }}
             >
               {plan.popular && (
-                <div className="pricing-card__badge">✦ MOST POPULAR</div>
+                <div className="pricing-card__badge">MOST POPULAR</div>
               )}
 
               <div className="pricing-card__top">
-                <span className="pricing-card__icon">{plan.icon}</span>
+                <span className="pricing-card__icon"><plan.Icon size={32} /></span>
                 <div>
                   <h3 className="pricing-card__name">{plan.name}</h3>
                   <p className="pricing-card__subtitle">{plan.subtitle}</p>
@@ -164,13 +165,13 @@ export default function Pricing() {
               <div className="pricing-card__meta">
                 {mode === 'onetime' ? (
                   <>
-                    <span className="pricing-card__tag-info">🚀 Delivered in {plan.deliveryDays}</span>
+                    <span className="pricing-card__tag-info">Delivered in {plan.deliveryDays}</span>
                     <span className="pricing-card__tag-info">+ ₹{(mode === 'onetime' ? 1999 : 0).toLocaleString('en-IN')}/mo optional maintenance</span>
                   </>
                 ) : (
                   <>
-                    <span className="pricing-card__tag-info">✅ Hosting included</span>
-                    <span className="pricing-card__tag-info">✅ Updates & support included</span>
+                    <span className="pricing-card__tag-info">Hosting included</span>
+                    <span className="pricing-card__tag-info">Updates & support included</span>
                   </>
                 )}
               </div>
@@ -180,7 +181,7 @@ export default function Pricing() {
               <ul className="pricing-card__features">
                 {plan.features.map((f) => (
                   <li key={f.text} className={`pricing-card__feature ${f.included ? 'included' : 'excluded'}`}>
-                    <span className="pricing-card__check">{f.included ? '✦' : '✕'}</span>
+                    <span className="pricing-card__check">{f.included ? <Check size={18} /> : <X size={18} />}</span>
                     {f.text}
                   </li>
                 ))}
@@ -203,11 +204,11 @@ export default function Pricing() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="pricing__addons-title">✦ OPTIONAL ADD-ONS — Add to any plan</p>
+          <p className="pricing__addons-title">OPTIONAL ADD-ONS — Add to any plan</p>
           <div className="pricing__addons-grid">
             {ADD_ONS.map((a) => (
               <div key={a.name} className="pricing__addon-card">
-                <span className="pricing__addon-icon">{a.icon}</span>
+                <span className="pricing__addon-icon"><a.Icon size={28} /></span>
                 <div className="pricing__addon-info">
                   <p className="pricing__addon-name">{a.name}</p>
                   <p className="pricing__addon-desc">{a.desc}</p>
@@ -225,7 +226,7 @@ export default function Pricing() {
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         >
-          <p>🙏 All plans include a <strong>FREE consultation call</strong> before you pay anything.</p>
+          <p>All plans include a <strong>FREE consultation call</strong> before you pay anything.</p>
           <p>Need a custom quote? <a href="#contact">Talk to us →</a></p>
         </motion.div>
 
