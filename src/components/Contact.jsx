@@ -18,8 +18,8 @@ const CONFIG = {
 // ─────────────────────────────────────────────
 
 const SERVICES = [
-  'Automation', 'Financial Tool', 'Development',
-  'Shop Website', 'Clinic/Medical', 'AI Solution',
+  'AI/ML Services', 'Big Data', 'Web Development',
+  'Cloud Solutions', 'Automation', 'Cybersecurity',
 ];
 
 export default function Contact() {
@@ -83,12 +83,14 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="section-label">✦ LET'S BUILD TOGETHER ✦</p>
+          <p className="section-label">GET IN TOUCH</p>
           <h2 className="contact__title">
-            Receive The <span className="gradient-text">Digital Blessing</span>
+            Have A Project Idea?
+            <br />
+            <span className="gradient-text">Let's Build It Together</span>
           </h2>
           <p className="contact__subtitle">
-            Fill the form — we'll email you <strong>AND</strong> ping you on WhatsApp instantly 🙏
+            Fill the form below and we'll get back to you within 24 hours with a tailored solution for your needs.
           </p>
 
           {/* How you receive badge */}
@@ -96,16 +98,16 @@ export default function Contact() {
             <div className="contact__notify-item">
               <span>📧</span>
               <div>
-                <p className="contact__notify-title">Email Notification</p>
-                <p className="contact__notify-sub">Lands in your Gmail inbox</p>
+                <p className="contact__notify-title">Email Response</p>
+                <p className="contact__notify-sub">Professional consultation</p>
               </div>
             </div>
             <div className="contact__notify-divider">+</div>
             <div className="contact__notify-item">
               <span>💬</span>
               <div>
-                <p className="contact__notify-title">WhatsApp Message</p>
-                <p className="contact__notify-sub">Pops on your phone instantly</p>
+                <p className="contact__notify-title">WhatsApp Confirmation</p>
+                <p className="contact__notify-sub">Quick acknowledgment</p>
               </div>
             </div>
           </div>
@@ -121,10 +123,10 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
           >
             {[
-              { icon: '📧', label: 'Email Us', value: 'hello@varaai.in' },
-              { icon: '💬', label: 'WhatsApp', value: '+91 98765 43210' },
-              { icon: '📍', label: 'Based In',  value: 'India — Serving Globally' },
-              { icon: '⏰', label: 'Response',  value: 'Within 24 hours' },
+              { icon: '📧', label: 'Email', value: 'contact@varaai.com' },
+              { icon: '📞', label: 'Phone', value: '+1 (123) 456-7890' },
+              { icon: '🌍', label: 'Location',  value: 'Global - India, USA, EU' },
+              { icon: '⏱️', label: 'Response Time',  value: 'Within 24 hours' },
             ].map((item) => (
               <div key={item.label} className="contact__info-item">
                 <span className="contact__info-icon">{item.icon}</span>

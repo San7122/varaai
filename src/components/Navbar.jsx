@@ -3,15 +3,21 @@ import './Navbar.css';
 
 const navLinks = [
   { label: 'Home', href: '#home' },
-  { label: 'Services', href: '#services' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'About', href: '#about' },
+  { label: 'Services', href: '#services', hasDropdown: true, submenu: [
+    { label: 'AI/ML Services', href: '#services' },
+    { label: 'Web Development', href: '#services' },
+    { label: 'Cloud Solutions', href: '#services' },
+    { label: 'Automation', href: '#services' },
+  ]},
+  { label: 'About Us', href: '#about' },
+  { label: 'Insights', href: '#insights' },
   { label: 'Contact', href: '#contact' },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -24,7 +30,7 @@ export default function Navbar() {
       <div className="navbar__inner">
         {/* Logo */}
         <a href="#home" className="navbar__logo">
-          <span className="navbar__logo-icon">🪷</span>
+          <span className="navbar__logo-icon">✦</span>
           <span className="navbar__logo-text">
             VARA<span className="navbar__logo-accent">AI</span>
           </span>
@@ -33,17 +39,32 @@ export default function Navbar() {
         {/* Desktop Links */}
         <ul className="navbar__links">
           {navLinks.map((link) => (
-            <li key={link.label}>
-              <a href={link.href} className="navbar__link">
+            <li key={link.label} className="navbar__item">
+              <a
+                href={link.href}
+                className="navbar__link"
+                onMouseEnter={link.hasDropdown ? () => setDropdownOpen(link.label) : null}
+                onMouseLeave={link.hasDropdown ? () => setDropdownOpen(null) : null}
+              >
                 {link.label}
+                {link.hasDropdown && <span className="dropdown-arrow">▼</span>}
               </a>
+              {link.hasDropdown && (
+                <div className={`dropdown ${dropdownOpen === link.label ? 'dropdown--open' : ''}`}>
+                  {link.submenu.map((item) => (
+                    <a key={item.label} href={item.href} className="dropdown__item">
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              )}
             </li>
           ))}
         </ul>
 
         {/* CTA */}
         <a href="#contact" className="btn-primary navbar__cta">
-          GET BLESSED ✦
+          Contact Us
         </a>
 
         {/* Hamburger */}
@@ -59,17 +80,27 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div className={`navbar__mobile ${menuOpen ? 'navbar__mobile--open' : ''}`}>
         {navLinks.map((link) => (
-          <a
-            key={link.label}
-            href={link.href}
-            className="navbar__mobile-link"
-            onClick={() => setMenuOpen(false)}
-          >
-            {link.label}
-          </a>
+          <div key={link.label}>
+            <a
+              href={link.href}
+              className="navbar__mobile-link"
+              onClick={() => setMenuOpen(false)}
+            >
+              {link.label}
+            </a>
+            {link.hasDropdown && (
+              <div className="navbar__mobile-submenu">
+                {link.submenu.map((item) => (
+                  <a key={item.label} href={item.href} className="navbar__mobile-submenu-link" onClick={() => setMenuOpen(false)}>
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
         ))}
         <a href="#contact" className="btn-primary" onClick={() => setMenuOpen(false)}>
-          GET BLESSED ✦
+          Contact Us
         </a>
       </div>
     </nav>
