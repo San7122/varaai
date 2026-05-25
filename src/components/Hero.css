@@ -12,14 +12,14 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(135deg, #0b0c16 0%, #1a1a2e 50%, #0f0f1e 100%);
+  background: linear-gradient(135deg, #f8f9fc 0%, #ffffff 50%, #f5f7fb 100%);
 }
 
 .hero__gradient-1 {
   position: absolute;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(139, 90, 255, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(139, 90, 255, 0.08) 0%, transparent 70%);
   top: -200px;
   right: -100px;
   filter: blur(100px);
@@ -29,7 +29,7 @@
   position: absolute;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(255, 77, 125, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 77, 125, 0.06) 0%, transparent 70%);
   bottom: -200px;
   left: -100px;
   filter: blur(100px);

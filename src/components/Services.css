@@ -1,7 +1,7 @@
 .services {
   padding: 100px 40px;
   position: relative;
-  background: linear-gradient(180deg, transparent 0%, rgba(139, 90, 255, 0.03) 100%);
+  background: linear-gradient(180deg, #ffffff 0%, rgba(139, 90, 255, 0.02) 100%);
 }
 
 .services__container {
@@ -58,19 +58,19 @@
 /* Service Card */
 .service-card {
   position: relative;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(139, 90, 255, 0.15);
+  background: #ffffff;
+  border: 1px solid rgba(139, 90, 255, 0.1);
   padding: 32px;
   overflow: hidden;
   border-radius: 12px;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .service-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(139, 90, 255, 0.4);
-  background: rgba(139, 90, 255, 0.05);
+  border-color: rgba(139, 90, 255, 0.3);
+  background: #ffffff;
   box-shadow: 0 20px 50px rgba(139, 90, 255, 0.15);
 }
 

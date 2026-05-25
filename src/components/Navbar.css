@@ -7,10 +7,11 @@
   background: transparent;
 }
 .navbar--scrolled {
-  background: rgba(11, 12, 22, 0.95);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(139, 90, 255, 0.1);
+  border-bottom: 1px solid rgba(139, 90, 255, 0.15);
   padding: 14px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 .navbar__inner {
   max-width: 1400px; margin: 0 auto;
@@ -52,11 +53,11 @@
 .navbar__link {
   font-family: 'Inter', sans-serif;
   font-size: 0.85rem; font-weight: 500;
-  letter-spacing: 0.5px; color: #b0b0c0; text-decoration: none;
+  letter-spacing: 0.5px; color: #4a4a6a; text-decoration: none;
   position: relative; transition: color 0.3s ease;
   display: flex; align-items: center; gap: 6px;
 }
-.navbar__link:hover { color: #ffffff; }
+.navbar__link:hover { color: #8b5aff; }
 .dropdown-arrow {
   font-size: 0.6rem;
   transition: transform 0.3s ease;
@@ -67,8 +68,8 @@
 .dropdown {
   position: absolute;
   top: 100%; left: 0;
-  background: rgba(11, 12, 22, 0.98);
-  border: 1px solid rgba(139, 90, 255, 0.2);
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(139, 90, 255, 0.15);
   border-radius: 8px;
   min-width: 200px;
   padding: 12px 0;
@@ -78,6 +79,7 @@
   transform: translateY(-8px);
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 .dropdown--open {
   opacity: 1;
@@ -87,14 +89,14 @@
 .dropdown__item {
   display: block;
   padding: 10px 16px;
-  color: #b0b0c0;
+  color: #4a4a6a;
   text-decoration: none;
   font-size: 0.85rem;
   transition: all 0.3s ease;
 }
 .dropdown__item:hover {
-  color: #ffffff;
-  background: rgba(139, 90, 255, 0.1);
+  color: #8b5aff;
+  background: rgba(139, 90, 255, 0.06);
 }
 .navbar__cta {
   margin-left: 16px;
