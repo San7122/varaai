@@ -1,16 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
-  --bg-primary: #f8f9fc;
+  --bg-primary: #ffffff;
   --bg-secondary: #ffffff;
-  --bg-card: #f5f7fb;
-  --primary-gradient: linear-gradient(135deg, #8b5aff, #ff4d7d);
-  --text-primary: #1a1a2e;
-  --text-secondary: #4a4a6a;
-  --text-muted: #7a7a9e;
-  --border: rgba(139, 90, 255, 0.1);
-  --glow-primary: 0 0 20px rgba(139, 90, 255, 0.2);
-  --glow-secondary: 0 0 20px rgba(255, 77, 125, 0.15);
+  --bg-alt: #f9fafb;
+  --bg-card: #ffffff;
+  --primary-gradient: linear-gradient(135deg, #6b44ff, #ff1b6d);
+  --text-primary: #0f0f1e;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --border: #e5e7eb;
+  --border-accent: rgba(107, 68, 255, 0.2);
+  --glow-primary: 0 20px 40px rgba(107, 68, 255, 0.15);
+  --glow-secondary: 0 4px 12px rgba(107, 68, 255, 0.3);
 }
 
 * {
@@ -76,22 +78,28 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: 8px;
   padding: 14px 32px;
-  background: linear-gradient(135deg, #8b5aff, #ff4d7d);
+  background: var(--primary-gradient);
   color: #ffffff;
   font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.5px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
+  box-shadow: var(--glow-secondary);
 }
 
 .btn-primary:hover {
-  box-shadow: 0 15px 40px rgba(139, 90, 255, 0.3);
-  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(107, 68, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  box-shadow: 0 2px 8px rgba(107, 68, 255, 0.3);
+  transform: translateY(0);
 }
 
 .btn-outline {
@@ -99,23 +107,24 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: 8px;
   padding: 14px 32px;
-  background: transparent;
-  color: #ffffff;
+  background: #f9fafb;
+  color: var(--text-primary);
   font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.5px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--border);
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
 }
 
 .btn-outline:hover {
-  background: rgba(139, 90, 255, 0.1);
-  border-color: #8b5aff;
-  color: #b0a0ff;
+  background: var(--bg-secondary);
+  border-color: #6b44ff;
+  color: #6b44ff;
+  box-shadow: 0 4px 12px rgba(107, 68, 255, 0.15);
 }
 
 /* Grid noise overlay */
